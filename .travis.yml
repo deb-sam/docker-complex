@@ -11,14 +11,14 @@ script:
   - docker run -e CI=true deb-sam/docker-complex npm  test
 
 after_success:
-  - docker build -t deb-sam/complex-client ./client
-  - docker build -t deb-sam/complex-nginx ./nginx
-  - docker build -t deb-sam/complex-server ./server
-  - docker build -t deb-sam/complex-worker ./worker
+  - docker build -t debsam2019/complex-client ./client
+  - docker build -t debsam2019/complex-nginx ./nginx
+  - docker build -t debsam2019/complex-server ./server
+  - docker build -t debsam2019/complex-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push deb-sam/complex-client
-  - docker push deb-sam/complex-nginx
-  - docker push deb-sam/complex-server
-  - docker push deb-sam/complex-worker
+  - docker push debsam2019/complex-client
+  - docker push debsam2019/complex-nginx
+  - docker push debsam2019/complex-server
+  - docker push debsam2019/complex-worker
